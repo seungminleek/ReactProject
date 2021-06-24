@@ -15,7 +15,7 @@ class LoginView extends Component {
 	  <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
 			</form> 
 	  <input class="w3-check w3-margin-top" type="checkbox" checked="checked" /> Remember me	
-        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button">Cancel</button>
+        <button onClick="document.getElementById('id01').style.display='none'" type="button" class="w3-button">Cancel</button>
         <span class="w3-right">Forgot <a href="/">password?</a></span>
       </div>
 			  
