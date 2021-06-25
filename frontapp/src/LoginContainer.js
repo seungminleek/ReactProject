@@ -38,9 +38,14 @@ class LoginContainer extends Component {
   render() {
 	  
 	let info = this.state.session.info;
-	const changeRadio = (e) => {
+	const changeInfo = (e) => {
+		const value = e.target.value;
 		this.setState({session:{info: e.target.value}});
-		console.log(this.state.session);
+		// this.state.session = {
+		// 	...this.state.session,
+		// 	name: value
+		// }
+		console.log("로그인정보세팅:" + this.state.session);
 	};
 
     return (
@@ -48,28 +53,30 @@ class LoginContainer extends Component {
 			<div class="w3-section">
 			<form class="w3-container" action="admissionView.js">
 				<label><b>Username</b></label>
-				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required />
+				<input class="w3-input w3-border w3-margin-bottom" onChange={changeInfo}
+					type="text" placeholder="Enter Username" name="id" required />
 				<label><b>Password</b></label>
-				<input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw"/>
+				<input class="w3-input w3-border" onChange={changeInfo} 
+					type="text" placeholder="Enter Password" name="pw"/>
 
-			<input
-				class="w3-border w3-margin-top"
-				type="radio"
-				id="user"
-				name="user"
-				value="user"
-				checked={info === "user" ? true : false}
-				onChange={changeRadio} ></input>
-			<label htmlFor="user" class="w3-margin-right"> User</label>
-			 <input
-				class="w3-border w3-margin-top"
-				type="radio"
-				id="owner"
-				name="owner"
-				value="owner"
-				checked={info === "owner" ? true : false}
-				onChange={changeRadio} ></input>
-			<label htmlFor="owner" class="w3-margin-top"> Owner</label>
+				<input
+					class="w3-border w3-margin-top"
+					type="radio"
+					id="user"
+					name="info"
+					value="user"
+					checked={info === "user" ? true : false}
+					onChange={changeInfo} ></input>
+				<label htmlFor="user" class="w3-margin-right"> User</label>
+				 <input
+					class="w3-border w3-margin-top"
+					type="radio"
+					id="owner"
+					name="info"
+					value="owner"
+					checked={info === "owner" ? true : false}
+					onChange={changeInfo} ></input>
+				<label htmlFor="owner" class="w3-margin-top"> Owner</label>
 		
 				<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
 			</form> 
