@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import SideProjectContainer from './SideProjectContainer';
-import SideProjectStore from './SideProjectStore';
-import App from './App';
-// import { Provider } from "mobx-react";
+import Root from './Root';
+import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));  
+
+// ReactDOM.render(<App />, document.getElementById('root'));  
+ReactDOM.render(<Root />, document.getElementById('root')); 
 // index.html에서 root라는 아이디로 작동한다
+registerServiceWorker();
 
 
-export {
-    SideProjectContainer,
-    SideProjectStore
-}
