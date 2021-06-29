@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 // import { MyPageContainer, LoginContainer } from 'Container';
 import MyPageContainer from 'Container/MyPageContainer';
 import LoginContainer from 'Container/LoginContainer';
+import MainContainer from 'Container/MainContainer';
 
 class App extends Component {
   render() {
@@ -12,7 +13,9 @@ class App extends Component {
 		
 		<div>
 			<Route exact path="/" component={LoginContainer}/>
-			<Route path="/MyPageContainer" component={MyPageContainer}/>
+			<Route path="/myPage" component={MyPageContainer}/>
+			<Route path="/main" component={MainContainer}/>
+			
 		</div>
     );
   }

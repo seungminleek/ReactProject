@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import 'App.css';
-import 'w3.css';
+import '../App.css';
+import '../w3.css';
 // import { inject, observer } from 'mobx-react';
 // import ReactDOM from 'react-dom'
 
