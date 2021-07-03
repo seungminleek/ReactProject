@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react';
 // import LoginView from './View/LoginView'
 // import admissionView from './View/admissionView'
 // import ReactDOM from 'react-dom'
+// 20210703
 
 @inject('loginStore')
 @observer
