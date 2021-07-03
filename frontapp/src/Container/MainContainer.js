@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import '../w3.css';
-import SideBar from '../View/SideBar'
+// import SideBar from '../View/SideBar'
 // import { inject, observer } from 'mobx-react';
 // import ReactDOM from 'react-dom'
 

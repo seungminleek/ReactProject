@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import '../App.css';
 import '../w3.css';
-// import { inject, observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 // import LoginView from './View/LoginView'
 // import admissionView from './View/admissionView'
 // import ReactDOM from 'react-dom'
 
-// @inject('SideProjectStore')
-// @observer
+@inject('loginStore')
+@observer
 class LoginContainer extends Component {
 	constructor(props) {
 		super(props);
+		
+		// store 가져오기
+		const { loginStore } = this.props;
+		console.log("store테스트 " + loginStore.session.info);
+		
 		this.state = {
 			style : {
 				display: ""
@@ -23,6 +28,11 @@ class LoginContainer extends Component {
 		};
 	}
 	
+	componentDidMount() {
+		const { loginStore } = this.props;
+		console.log("store테스트 " + loginStore.session.info);
+	}
+	
 	// modalOpen = (props) => {
 	// 	console.log("modal open" );
 	// 	this.setState({style:{display: "block"}});
@@ -33,21 +43,27 @@ class LoginContainer extends Component {
 	 * changeSession 로그인 세션정보 변경
 	 *
 	**/
-	changeSession = (e) => {
+	changeSession = async(e) => {
 		const value = e.target.value;
 		const name = e.target.name;
 		
-		this.setState({session:{
-			...this.state.session,		// 다른 정보 기존 유지
-			[name]: value
-		}});
-		console.log("로그인정보세팅:" + this.state.session.info);
+		const { loginStore } = this.props;
+		
+		await loginStore.changeSession(name, value);
+		
+		// this.setState({session:{
+		// 	...this.state.session,		// 다른 정보 기존 유지
+		// 	[name]: value
+		// }});
+		await console.log("로그인정보세팅:" + loginStore.session.id + loginStore.session.info);
+		
 	};
 
 	
   render() {
 	  
-	let info = this.state.session.info;
+	const info = this.props.loginStore.session.info;
+	console.log("container 값:" + info);
 	  
     return (
 		<div class="w3-container">
